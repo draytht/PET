@@ -94,23 +94,44 @@ def signup():
     db.save(user_doc)
     return jsonify({"message": "Signup successful!", "success": True}), 201
 
-@app.route('/login', methods=['POST'])
+# @app.route('/login', methods=['POST'])
+# def login():
+#     """Handles user authentication using the 'users' database."""
+#     db = connect_to_couchdb(USER_DB_NAME)
+#     data = request.json
+#     email = data.get("email")
+#     password = data.get("password")
+
+#     if email not in db:
+#         return jsonify({"message": "User not found", "success": False}), 401
+
+#     user = db[email]
+    
+#     if bcrypt.checkpw(password.encode("utf-8"), user["password"].encode("utf-8")):
+#         return jsonify({"message": "Login successful!", "success": True, "user": {"name": user["name"], "email": user["email"]}}), 200
+    
+#     return jsonify({"message": "Invalid password", "success": False}), 401
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    """Handles user authentication using the 'users' database."""
-    db = connect_to_couchdb(USER_DB_NAME)
-    data = request.json
-    email = data.get("email")
-    password = data.get("password")
+    if request.method == 'POST':
+        # existing login logic
+        db = connect_to_couchdb(USER_DB_NAME)
+        data = request.json
+        email = data.get("email")
+        password = data.get("password")
 
-    if email not in db:
-        return jsonify({"message": "User not found", "success": False}), 401
+        if email not in db:
+            return jsonify({"message": "User not found", "success": False}), 401
 
-    user = db[email]
-    
-    if bcrypt.checkpw(password.encode("utf-8"), user["password"].encode("utf-8")):
-        return jsonify({"message": "Login successful!", "success": True, "user": {"name": user["name"], "email": user["email"]}}), 200
-    
-    return jsonify({"message": "Invalid password", "success": False}), 401
+        user = db[email]
+
+        if bcrypt.checkpw(password.encode("utf-8"), user["password"].encode("utf-8")):
+            return jsonify({"message": "Login successful!", "success": True, "user": {"name": user["name"], "email": user["email"]}}), 200
+
+        return jsonify({"message": "Invalid password", "success": False}), 401
+    else:
+        # GET request fallback response
+        return jsonify({"message": "This is the login endpoint. Please POST your credentials here."}), 200
 
 # ✅ GET ALL USERS (FOR DEBUGGING)
 @app.route('/users', methods=['GET'])
