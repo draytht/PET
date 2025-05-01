@@ -31,7 +31,8 @@ function Home() {
     }, []);
 
     const fetchTransactions = () => {
-        axios.get("http://127.0.0.1:5000/transactions")
+        // axios.get("http://127.0.0.1:5000/transactions")
+        axios.get("https://pet-7r7h.onrender.com/transactions")
             .then(response => setTransactions(response.data))
             .catch(error => console.error("Error fetching data:", error));
     };

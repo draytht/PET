@@ -13,7 +13,8 @@ function ChatBox() {
 
     const fetchChatHistory = async () => {
         try {
-            const response = await axios.get(`http://127.0.0.1:5000/chat-history/${userId}`);
+            // const response = await axios.get(`http://127.0.0.1:5000/chat-history/${userId}`);
+            const response = await axios.get(`https://pet-7r7h.onrender.com/chat-history/${userId}`);
             const chatHistory = response.data.flatMap(chat => [
                 { text: chat.user_message, sender: "user" },
                 { text: chat.ai_response, sender: "bot" }

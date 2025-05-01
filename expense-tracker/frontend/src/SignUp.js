@@ -12,8 +12,8 @@ function Signup() {
 
     const handleSignup = async () => {
         try {
-            const response = await axios.post("http://127.0.0.1:5000/signup", { name, email, password });
-
+            // const response = await axios.post("http://127.0.0.1:5000/signup", { name, email, password });
+            const response = await axios.post("https://pet-7r7h.onrender.com/signup", { name, email, password });
             if (response.data.success) {
                 setMessage("✅ Signup successful! Redirecting to login...");
                 setTimeout(() => navigate("/"), 2000); 

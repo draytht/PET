@@ -94,7 +94,7 @@ def signup():
     db.save(user_doc)
     return jsonify({"message": "Signup successful!", "success": True}), 201
 
-@app.route('/', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def login():
     """Handles user authentication using the 'users' database."""
     db = connect_to_couchdb(USER_DB_NAME)

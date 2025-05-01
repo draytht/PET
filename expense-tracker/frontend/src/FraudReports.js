@@ -4,11 +4,16 @@ import axios from "axios";
 function FraudReports() {
   const [frauds, setFrauds] = useState([]);
 
-  useEffect(() => {
-    axios.get("http://127.0.0.1:5000/fraud-reports").then((res) => {
+  // useEffect(() => {
+  //   axios.get("http://127.0.0.1:5000/fraud-reports").then((res) => {
+  //     setFrauds(res.data);
+  //   });
+  // }, []);
+    useEffect(() => {
+    axios.get("https://pet-7r7h.onrender.com/fraud-reports").then((res) => {
       setFrauds(res.data);
     });
-  }, []);
+    }, []);
 
   return (
     <div style={{ padding: "20px" }}>

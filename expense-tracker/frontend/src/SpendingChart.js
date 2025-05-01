@@ -20,7 +20,8 @@ function SpendingChart() {
     const [showCashbackChart, setShowCashbackChart] = useState(true); // New state for Cashback Chart
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:5000/transactions")
+        // axios.get("http://127.0.0.1:5000/transactions")
+        axios.get("https://pet-7r7h.onrender.com/transactions")
             .then(response => {
                 console.log("Fetched Transactions:", response.data);
                 const filteredData = response.data.filter(tx => 
