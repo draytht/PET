@@ -1,9 +1,11 @@
 import couchdb
 import pandas as pd
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # CouchDB connection details
-COUCHDB_URL = "http://admin:123456@127.0.0.1:5984/"  
-DATABASE_NAME = "expense_tracker"  
+COUCHDB_URL = os.getenv("COUCHDB_URL") 
+DATABASE_NAME = os.getenv("TRANSACTION_DB_NAME")
 
 def connect_to_couchdb():
     """Connect to CouchDB and return the database object."""
@@ -49,8 +51,9 @@ def insert_transactions_to_couchdb(db, df):
         print(f"Error inserting transactions: {e}")
 
 def main():
-    file_path = r"C:\Users\Thanh\OneDrive\Desktop\MyProj\team2proj\expense-tracker\digital_wallet_transactions.csv"
-    
+    # file_path = r"C:\Users\Thanh\OneDrive\Desktop\MyProj\team2proj\expense-tracker\digital_wallet_transactions.csv"
+    file_path = r"/Users/thadat/PET/expense-tracker/digital_wallet_transactions.csv"
+
     try:
         df = pd.read_csv(file_path)
     except Exception as e:

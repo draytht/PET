@@ -5,6 +5,8 @@ import uuid
 import bcrypt
 import openai
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 
 app = Flask(__name__)
@@ -12,9 +14,9 @@ CORS(app)  # Enable CORS for frontend-backend communication
 # Load API key (store it securely!)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # CouchDB Configuration
-COUCHDB_URL = "http://admin:123456@127.0.0.1:5984/"
-TRANSACTION_DB_NAME = "expense_tracker"  # Database for transactions
-USER_DB_NAME = "users"  # Database for authentication
+COUCHDB_URL = os.getenv("COUCHDB_URL")
+TRANSACTION_DB_NAME = os.getenv("TRANSACTION_DB_NAME")
+USER_DB_NAME = os.getenv("USER_DB_NAME") # Database for authentication
 
 def connect_to_couchdb(db_name):
     """Connects to CouchDB and returns the database object."""
