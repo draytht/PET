@@ -114,7 +114,6 @@ def signup():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # existing login logic
         db = connect_to_couchdb(USER_DB_NAME)
         data = request.json
         email = data.get("email")
@@ -130,8 +129,7 @@ def login():
 
         return jsonify({"message": "Invalid password", "success": False}), 401
     else:
-        # GET request fallback response
-        return jsonify({"message": "This is the login endpoint. Please POST your credentials here."}), 200
+        return jsonify({"message": "This is the login endpoint. Please POST email and password here."}), 200
 
 # ✅ GET ALL USERS (FOR DEBUGGING)
 @app.route('/users', methods=['GET'])
