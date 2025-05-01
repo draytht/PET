@@ -1,0 +1,95 @@
+body {
+    background: #000000;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  .container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  nav {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(25,33,43,1) 78%);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;  /* Makes text bold */
+    font-size: 18px;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #000000;
+}
+
+  h1, h2 {
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #1e1e1e;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+  
+  th {
+    background: rgb(209,48,34);
+    background: linear-gradient(0deg, rgba(209,48,34,1) 53%, rgba(223,87,87,1) 87%);
+  }
+  
+  button {
+    background: rgb(195,72,34);
+    background: radial-gradient(circle, rgba(195,72,34,1) 21%, rgba(223,87,87,1) 79%);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .chat-footer {
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+    padding: 10px;
+    background-color: #1e1e1e;
+    border-radius: 0 0 10px 10px;
+}
+.logout-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: darkred;
+}
+
+.navbar {
+  text-align: center;
+  margin-top: 20px;
+}
