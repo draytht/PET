@@ -10,7 +10,9 @@ load_dotenv()
 
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend-backend communication
+# CORS(app)  # Enable CORS for frontend-backend communication
+CORS(app, origins=["https://pet-7r7h.onrender.com"])
+
 # Load API key (store it securely!)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 # CouchDB Configuration
